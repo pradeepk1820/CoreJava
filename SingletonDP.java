@@ -9,17 +9,11 @@ import java.io.Serializable;
 public class SingletonDP {
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        // EagerSingleton singleton = EagerSingleton.getSingleton();
-        // LazyInitializedSingleton laSingleton =
-        // LazyInitializedSingleton.getInitializedSingleton();
-        // StaticBlockSingleton blockSingleton =
-        // StaticBlockSingleton.getStaticBlockSingleton();
-        // getSeriliseObj();
-
-        CloneSingleton instance = CloneSingleton.getSingleton();
-        CloneSingleton instance1 = (CloneSingleton) instance.clone();
-        System.out.println(instance.hashCode());
-        System.out.println(instance1.hashCode());
+        EagerSingleton singleton = EagerSingleton.getSingleton();
+        LazyInitializedSingleton laSingleton = LazyInitializedSingleton.getInitializedSingleton();
+        StaticBlockSingleton blockSingleton = StaticBlockSingleton.getStaticBlockSingleton();
+        getSeriliseObj();
+        getClone();
     }
 
     private static void getSeriliseObj() {
@@ -40,6 +34,13 @@ public class SingletonDP {
             // TODO: handle exception
         }
 
+    }
+
+    private static void getClone() {
+        CloneSingleton instance = CloneSingleton.getSingleton();
+        CloneSingleton instance1 = (CloneSingleton) instance.clone();
+        System.out.println(instance.hashCode());
+        System.out.println(instance1.hashCode());
     }
 }
 
